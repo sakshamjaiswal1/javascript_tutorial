@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Chart-js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- <div class="container chart-container" style="position: relative; height:20vh; width:20vw">
+<canvas id="myChart" width="" height=""></canvas>
+</div> -->
+<div class="container chart-container" style="position: relative; height:20vh; width:20vw">
+<canvas id="dashboardChart" width="400" height="400"></canvas>
+</div>
+   
+<script>
+    // var ctx2 = document.getElementById('myChart').getContext('2d');
+   
+  
+    // var myChart = new Chart(ctx2, {
+    //     type: 'doughnut',
+      
+    //     data: {
+            
+    //         datasets: [{
+                
+    //             data: [12, 19],
+    //             backgroundColor: [
+    //                'rgba(255, 99, 132, 1)',
+    //                 'rgba(54, 162, 235, 1)'
+                   
+    //             ],
+    //             borderColor: [
+    //                 'rgba(255, 99, 132, 1)',
+    //                 'rgba(54, 162, 235, 1)'
+                    
+    //             ],
+    //             borderWidth: 1
+    //         }]
+    //     },
+    //     options: {resposive:true,
+    //           cutout:"70%"
+    //     }
+    // });
+
+    var ctx2 = document.getElementById("dashboardChart");
+        var dashboardChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ["Red", "Orange", "Green"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [33, 33, 33],
+                    backgroundColor: [
+                        'rgba(231, 76, 60, 1)',
+                        'rgba(255, 164, 46, 1)',
+                        'rgba(46, 204, 113, 1)'
+                    ],
+                    // borderColor: [
+                    //    'black'
+                    // ],
+                    borderWidth: 2
+                }, {
+                        label: '# of Votes',
+                        data: [33, 33, 33],
+                        backgroundColor: [
+                           'white'
+                        ],
+                        borderColor: [
+                            'white'
+                        ],
+                        borderWidth: 2
+                    }]
+
+            },
+            options: {
+                    borderRadius: 3,
+                responsive:true,
+                rotation: 85 * Math.PI,
+                circumference: 59.5 * Math.PI,
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: false
+                },
+                cutout: "70%"
+            },
+        });
+</script>
+
+ 
+</body>
+</html>
