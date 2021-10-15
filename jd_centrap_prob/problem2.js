@@ -61,3 +61,6 @@ const countChars = (str, char) => {
 };
 
 // console.log(countChars("s", "s"));
+let btn=document.getElementById('btn')
+
+btn.addEventListener('')
