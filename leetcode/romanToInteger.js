@@ -7,7 +7,7 @@ var intToRoman = function(num) {
         let roman =''
         const currDigit = parseInt(nums[i])
         if(currDigit<4){
-            for(let j = 1; j<=currDigit;){
+            for(let j = 1; j<=currDigit;j++){
                 roman+=sum1[0]
             }
         }
