@@ -68,8 +68,57 @@ class Polygon {
     }
   }
 }
-const pentagon= new Polygon(1,2,3,4,5)
+const pentagon = new Polygon(1, 2, 3, 4, 5);
 
 // console.log(...pentagon.getSides())
 
 // static methos cannot be called through class instance
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  static displayName= "Point"
+  static distance (a,b){
+    const dx = a.x -b.x
+    const dy = a.y-b.y
+    return Math.hypot(dx,dy)
+  }
+}
+const p1 = new Point(3,3)
+const p2 = new Point (5,3)
+
+// console.log(p1.displayName)
+// console.log(Point.distance(p1,p2))
+
+// binding this prototype with and static method
+
+// class Animal {
+//   speak(){
+//     return this
+//   }
+//   static eat (){
+//     return this
+//   }
+// }
+
+// let obj = new Animal()
+// console.log(obj.speak())
+// let speak = obj.speak
+// console.log( speak())
+
+// function Animal(){
+//   Animal.prototype.speak = function(){
+//     return this
+//   }
+//   Animal.eat= function(){
+//     return this
+//   }
+// }
+
+// let obj = new Animal()
+// let eat = Animal.eat
+//  let x=eat()
+
+// let speak = obj.speak
+// let y=speak()
