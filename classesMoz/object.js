@@ -1,0 +1,11 @@
+console.log('This is object')
+ let val=  new String('33')  
+new Number(33)    
+new Boolean(false)  
+new Object()   
+new Array(3,4,5)    
+new RegExp()    
+new Function()  
+new Date()
+
+console.log(val[0])

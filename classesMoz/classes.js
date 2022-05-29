@@ -78,15 +78,15 @@ class Point {
     this.x = x;
     this.y = y;
   }
-  static displayName= "Point"
-  static distance (a,b){
-    const dx = a.x -b.x
-    const dy = a.y-b.y
-    return Math.hypot(dx,dy)
+  static displayName = "Point";
+  static distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+    return Math.hypot(dx, dy);
   }
 }
-const p1 = new Point(3,3)
-const p2 = new Point (5,3)
+const p1 = new Point(3, 3);
+const p2 = new Point(5, 3);
 
 // console.log(p1.displayName)
 // console.log(Point.distance(p1,p2))
@@ -122,3 +122,26 @@ const p2 = new Point (5,3)
 
 // let speak = obj.speak
 // let y=speak()
+
+// sub classing with extends
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    console.log(`${this.name} bark`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name) {
+    super(name);
+  }
+  speak(){
+    super.speak()
+    console.log(`${this.name} calls`)
+  }
+}
+let jinjin= new Dog('jinjin')
+jinjin.speak()
