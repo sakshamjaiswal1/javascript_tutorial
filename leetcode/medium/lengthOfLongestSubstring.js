@@ -1,18 +1,28 @@
 const lengthOfLongestSubstring = function (s) {
-  let unique = [];
-  let total = 1;
-  for (let i = 0; i < s.length; i++) {
-    unique.push(s[i]);
-    if (unique.includes(s[i + 1])||i===s.length-1) {
-      if (total < unique.length) {
-        total = unique.length;
+  let map = new Map();
+  let left = (right = 0);
+  let max = 0;
+  while (right < s.length) {
+    if (right < s.length) {
+      if (map.has(s[right])) {
+        max = Math.max(max, right - left);
+        left = map.get(s[right]) + 1;
+        map.delete(s[right]);
+        for (const [key, value] of map) {
+          if (value < left) {
+            map.delete(key);
+          }
+        }
       }
-      unique = [];
-    //   i=i-unique.length-1
+ 
     }
+    map.set(s[right],right)
+    right++
   }
+if(max===0) return s.length
+max= Math.max(max,right-left)
+return max
 
-  return console.log(total);
 };
 
-lengthOfLongestSubstring("dvdf");
+ console.log( lengthOfLongestSubstring("dvdxf"));
