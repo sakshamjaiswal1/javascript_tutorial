@@ -8,13 +8,29 @@ const threeSumClosest = (nums, target) => {
       while(l<r){
           let sum = nums[i]+nums[l]+nums[r]
        if(Math.abs(target-sum)<Math.abs(res-target))res=sum
-       if(target>sum)l++
+       if(target>sum)l++    
        else r--
       }
   }
   return  console.log( res)
 };
 
-threeSumClosest([0,2,1,-3]
-    ,1)
+// threeSumClosest([0,2,1,-3]
+//     ,1)
 
+function factorialize(num) {
+  let factorials = []
+  let newNum=num
+  let i=2
+ while(newNum>1){
+while(newNum%i<1){
+    newNum=newNum/i
+    factorials.push(i)
+}
+i++
+ }
+
+  return factorials
+}
+
+// console.log( factorialize(555));
