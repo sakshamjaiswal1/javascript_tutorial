@@ -25,7 +25,7 @@ const letterCombinations1=(digits)=>{
 
 // console.log(letterCombinations1("23"))
 const dfs=(result,choices,digits,n,path)=>{
-    if(n===digits.lenght){
+    if(n===digits.length){
         result.push(path)
     }
     else{
@@ -46,4 +46,23 @@ var letterCombinations = function(digits) {
     dfs(result,choices,digits,0,'')
     return result
 };
-console.log(letterCombinations1("23"))
+// console.log(letterCombinations1("23"))
+function largestOfFour(arr) {
+    
+    let largeArr=[]
+    for(let i=0;i<arr.length;i++){
+        let large =-Infinity
+        for(let j=0;j<arr[i].length;j++){
+       
+        if(arr[i][j]>large){
+            large= arr[i][j]
+        }
+    
+      }
+      largeArr.push(large)
+    }
+  
+    return console.log( largeArr);
+  }
+  
+  largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
