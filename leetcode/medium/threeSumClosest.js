@@ -34,3 +34,7 @@ i++
 }
 
 // console.log( factorialize(555));
+let elem =[1,2,3,3,3,4,6,3,1,6]
+
+const even= elem.filter((item)=>item%2===0)
+console.log(even)
