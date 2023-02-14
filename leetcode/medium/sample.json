@@ -1,0 +1,335 @@
+{
+  "json": [
+    {
+      "field": "accessGroup",
+      "header": "Access group",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "actionStatus",
+      "header": "Action status",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "address",
+      "header": "Address",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressCategory",
+      "header": "Address category",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressClass",
+      "header": "Address class",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressGroup",
+      "header": "Address group",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressLine1",
+      "header": "Address line1",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressLine2",
+      "header": "Address line2",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressPic",
+      "header": "Address pic",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressStatus",
+      "header": "Address status",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "addressType",
+      "header": "Address type",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "altMobile",
+      "header": "Alt mobile",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "city",
+      "header": "City",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "conatctId",
+      "header": "Conatct id",
+      "width": 4,
+      "type": "ObjectID"
+    },
+    {
+      "field": "conatctIdAlias",
+      "header": "Conatct id alias",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "conatctIdLabel",
+      "header": "Conatct id label",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "country",
+      "header": "Country",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "county",
+      "header": "County",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "createdAt",
+      "header": "Created at",
+      "width": 4,
+      "type": "Date"
+    },
+    {
+      "field": "createdBy",
+      "header": "Created by",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "description",
+      "header": "Description",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "extension",
+      "header": "Extension",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "extraTimeToReach",
+      "header": "Extra time to reach",
+      "width": 4,
+      "type": "Number"
+    },
+    {
+      "field": "extRefId",
+      "header": "Ext ref id",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "fax",
+      "header": "Fax",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "geocodeAtDt",
+      "header": "Geocode at dt",
+      "width": 4,
+      "type": "Date"
+    },
+    {
+      "field": "geocodeAtDtFmt",
+      "header": "Geocode at dt fmt",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "geocodeLat",
+      "header": "Geocode lat",
+      "width": 4,
+      "type": "Number"
+    },
+    {
+      "field": "geocodeLong",
+      "header": "Geocode long",
+      "width": 4,
+      "type": "Number"
+    },
+    {
+      "field": "id",
+      "header": "Id",
+      "width": 4,
+      "type": "Number"
+    },
+    {
+      "field": "idAlias",
+      "header": "Id alias",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "isActive",
+      "header": "Is active",
+      "width": 4,
+      "type": "Boolean"
+    },
+    {
+      "field": "isCustomer",
+      "header": "Is customer",
+      "width": 4,
+      "type": "Boolean"
+    },
+    {
+      "field": "isLackOfCoverage",
+      "header": "Is lack of coverage",
+      "width": 4,
+      "type": "Boolean"
+    },
+    {
+      "field": "itemOrgnId",
+      "header": "Item orgn id",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "itemOwnerId",
+      "header": "Item owner id",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "localityOrLandmark",
+      "header": "Locality or landmark",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "mapProfileId",
+      "header": "Map profile id",
+      "width": 4,
+      "type": "ObjectID"
+    },
+    {
+      "field": "mapProfileIdAlias",
+      "header": "Map profile id alias",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "mapProfileIdLabel",
+      "header": "Map profile id label",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "mobile",
+      "header": "Mobile",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "name",
+      "header": "Name",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "note",
+      "header": "Note",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "orgnId",
+      "header": "Orgn id",
+      "width": 4,
+      "type": "ObjectID"
+    },
+    {
+      "field": "phone",
+      "header": "Phone",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "pocketId",
+      "header": "Pocket id",
+      "width": 4,
+      "type": "ObjectID"
+    },
+    {
+      "field": "pocketIdAlias",
+      "header": "Pocket id alias",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "pocketIdLabel",
+      "header": "Pocket id label",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "region",
+      "header": "Region",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "shipVia",
+      "header": "Ship via",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "state",
+      "header": "State",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "travelZone",
+      "header": "Travel zone",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "updatedAt",
+      "header": "Updated at",
+      "width": 4,
+      "type": "Date"
+    },
+    {
+      "field": "updatedBy",
+      "header": "Updated by",
+      "width": 4,
+      "type": "String"
+    },
+    {
+      "field": "zippost",
+      "header": "Zippost",
+      "width": 4,
+      "type": "String"
+    }
+  ],
+  "colBig": "pocketId,pocketIdAlias"
+}
