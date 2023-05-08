@@ -1,23 +1,16 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  border: 1px solid black;
+  background: green;
+  margin: 30px 50px 20px 10px;
+  padding: 30px 50px 20px 10px;
+}
+.container > h1 {
+  color: white;
 }
 
-body::before{
-    content: '';
-    position: fixed;
-    background-image: url("https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg");
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.container{
-    width: 100%;
-    height: 100%;
-}

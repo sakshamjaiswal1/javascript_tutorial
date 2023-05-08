@@ -37,3 +37,32 @@ const partition = function (head, x) {
   (front.next = bdum.next), (back.next = null);
   return fdum.next;
 };
+
+const reverseBetween = (head, left, right) => {
+  const dummy = new ListNode(0, list);
+  let head = dummy;
+  let curr = 1;
+  while (left++ < right) {
+    const next = tail.next;
+    tail.next = next.next;
+    next.next = head.next;
+    head.next = next;
+  }
+  return dummy.next;
+};
+
+const reverseBetween2 = (list, left, right) => {
+  const dummy = new ListNode(0, list);
+  let head = dummy;
+  let curr = 1;
+
+  while (curr++ < left) head = head.next;
+  let tail = head.next;
+  while (left++ < right) {
+    const next = tail.next;
+    tail.next = next.next;
+    next.next = head.next;
+    head.next = next;
+  }
+  return dummy.next;
+};
