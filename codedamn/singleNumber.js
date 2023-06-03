@@ -5,3 +5,18 @@ function singleNumber(nums) {
   }
   return result;
 }
+class ArrayWrapper {
+	constructor(nums) {
+        this.nums= nums
+    }
+
+	valueOf() {
+       return this.nums.reduce((acc,curr)=>acc+curr,0)
+    }
+
+	toString() {
+       return `[${this.nums.join(",")}]` 
+    }
+}
+
+export default ArrayWrapper
