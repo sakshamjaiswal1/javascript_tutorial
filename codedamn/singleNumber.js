@@ -19,4 +19,9 @@ class ArrayWrapper {
     }
 }
 
-export default ArrayWrapper
+function missingNumber(nums){
+  const totalSum = (nums.length+1 * nums.length)/2
+  const arraySum = nums.reduce((acc,curr)=>acc+curr,0)
+
+  return totalSum-arraySum
+}
