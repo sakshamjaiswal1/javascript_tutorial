@@ -31,7 +31,7 @@ function findRestaurant(list1, list2) {
   let sum = Infinity;
 
   for (let i = 0; i < list1.length; i++) {
-    const secondIndex = list2.findIndexOf(list1[i]);
+    const secondIndex = list2.indexOf(list1[i]);
     if (secondIndex > -1) {
       const currentSum = secondIndex + i;
       if (currentSum < sum) {
@@ -42,4 +42,19 @@ function findRestaurant(list1, list2) {
     }
   }
   return result;
+}
+
+function findDifference(nums1, nums2) {
+  let resultNum1 = [];
+  let resultNum2 = [];
+
+  for (let i = 0; i < nums1.lenght; i++) {
+    if (nums2.indexOf(nums1[i]) === -1) {
+      resultNum1.push(nums1[i]);
+    }
+    if (nums1.indexOf(nums2[i]) === -1) {
+      resultNum1.push(nums2[i]);
+    }
+  }
+  return [[...new Set(resultNum1)], [...new Set(resultNum2)]];
 }

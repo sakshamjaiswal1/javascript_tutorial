@@ -1,16 +1,185 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.container {
-  border: 1px solid black;
-  background: green;
-  margin: 30px 50px 20px 10px;
-  padding: 30px 50px 20px 10px;
-}
-.container > h1 {
-  color: white;
 }
 
+body {
+  background-image: url("https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg");
+  background-attachment: fixed;
+  font-size: 22px;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: white;
+  margin: 0;
+}
+
+.form-group {
+  margin: 0px auto 1rem auto;
+  padding: 0.25rem;
+  font-size: 1rem;
+
+  width: 100%;
+}
+
+.container {
+  max-width: 720px;
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+label {
+  font-size: 1.125rem;
+  position: relative;
+  bottom: 10px;
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.title {
+  text-align: center;
+  font-weight: 300px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  text-align: center;
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 40%);
+  font-size: 1.125rem;
+}
+
+form {
+  background-color: rgba(27, 27, 50, 0.8);
+  border-radius: 4px;
+  padding: 50px;
+}
+
+input {
+  border: none;
+  padding: 5px 15px;
+}
+
+#name {
+  width: 100%;
+  margin-bottom: 0px;
+
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+#name:placeholder {
+  font-size: 20px;
+}
+
+#email {
+  height: 30px;
+width: 100%;
+  margin-bottom: 0px;
+  margin-right: 30px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: none;
+}
+
+#email:placeholder {
+  font-size: 20px;
+}
+
+.Additional {
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.ladell {
+  margin-bottom: 0.5rem;
+}
+
+.aa {
+  margin-top: 10px;
+}
+
+#number {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+#number:placeholder {
+  font-size: 20px;
+}
+
+.aa {
+  position: relative;
+  bottom: 15px;
+  min-height: 1.2rem;
+  min-width: 1.2rem;
+  padding: 10px;
+}
+
+#cc {
+  margin-bottom: 10px;
+}
+
+select {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 5px 15px;
+}
+
+.select {
+  margin-bottom: 20px;
+}
+
+#select:placeholder {
+  font-size: 20px;
+}
+
+.coco {
+  margin-left: 100px;
+}
+
+textarea {
+  margin-top: 0.5rem;
+  height: 100px;
+  border-radius: 5px;
+  width: 600px;
+  font-size: 20px;
+  padding: 5px 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: rgb(78, 187, 78);
+  color: inherit;
+  border-radius: 2px;
+  margin-top: 0px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button::placeholder {
+  font-size: 20px;
+}
