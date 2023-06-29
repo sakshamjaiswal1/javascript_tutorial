@@ -58,3 +58,18 @@ function findDifference(nums1, nums2) {
   }
   return [[...new Set(resultNum1)], [...new Set(resultNum2)]];
 }
+
+
+const maxProfit = function (prices) {
+  let smallest= Number.MAX_VALUE
+  let maxProfit =0
+  for(let i=0;i<prices.length;i++){
+      if(prices[i]<smallest){
+          smallest= prices[i]
+      }
+      else if ( prices[i]-smallest>maxProfit){
+          maxProfit= prices[i]- smallest
+      }
+  }
+  return maxProfit
+}
