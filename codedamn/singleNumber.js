@@ -58,3 +58,29 @@ function findDifference(nums1, nums2) {
   }
   return [[...new Set(resultNum1)], [...new Set(resultNum2)]];
 }
+
+const duplicateZeros = function (arr) {
+  let possibleDups = 0;
+  let length = arr.length - 1;
+  for (let left = 0; left <= length - possibleDups; left++) {
+    if (arr[left] === 0) {
+      if (left === length - possibleDups) {
+        arr[length] = 0;
+        length -= 1;
+        break;
+      }
+      possibleDups++;
+    }
+  }
+  let last = length - possibleDups;
+
+  for (let i = last; i >= 0; i--) {
+    if (arr[i] === 0) {
+      arr[i + possibleDups] = 0;
+      possibleDups--;
+      arr[i + possibleDups] = 0;
+    } else {
+      arr[i + possibleDups] = arr[i];
+    }
+  }
+};
