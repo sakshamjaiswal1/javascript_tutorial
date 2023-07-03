@@ -59,6 +59,7 @@ function findDifference(nums1, nums2) {
   return [[...new Set(resultNum1)], [...new Set(resultNum2)]];
 }
 
+
 const duplicateZeros = function (arr) {
   let possibleDups = 0;
   let length = arr.length - 1;
@@ -84,3 +85,19 @@ const duplicateZeros = function (arr) {
     }
   }
 };
+
+
+const maxProfit = function (prices) {
+  let smallest= Number.MAX_VALUE
+  let maxProfit =0
+  for(let i=0;i<prices.length;i++){
+      if(prices[i]<smallest){
+          smallest= prices[i]
+      }
+      else if ( prices[i]-smallest>maxProfit){
+          maxProfit= prices[i]- smallest
+      }
+  }
+  return maxProfit
+}
+
