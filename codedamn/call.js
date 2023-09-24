@@ -20,4 +20,18 @@ printFullName.call(nameFriend, "Shakti", "UK");
 printFullName.apply(nameFriend, ["Shakti", "Bharat"]);
 
 const printMyName = printFullName.bind(nameFriend, "sak", "up");
-printMyName();
+
+
+Function.prototype.callPolyfill = function (context, ...args) {
+
+	context.tempMethod = this
+
+
+	const result = context.tempMethod(...args)
+
+
+	delete context.tempMethod
+
+	// Return the result
+	return result
+}
