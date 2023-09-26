@@ -10,3 +10,27 @@ function memoize(fn) {
     return result
   };
 }
+
+
+const isPalindrome = (str) => {
+	const len = str.length
+	for (let i = 0; i < len / 2; i++) {
+		if (str[i] !== str[len - 1 - i]) {
+			return false
+		}
+	}
+	return true
+}
+
+/**
+ * @param {string[]} words
+ * @return {string}
+ */
+const firstPalindrome = function (words) {
+	for (const word of words) {
+		if (isPalindrome(word)) {
+			return word
+		}
+	}
+	return ''
+}
