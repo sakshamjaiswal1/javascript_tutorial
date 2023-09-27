@@ -34,3 +34,24 @@ const firstPalindrome = function (words) {
 	}
 	return ''
 }
+
+
+const bestHand = (ranks, suits) => {
+    const rankCounts = new Map()
+	const suitCounts = new Map()
+
+	for (let i = 0; i < ranks.length; i++) {
+		rankCounts.set(ranks[i], (rankCounts.get(ranks[i]) || 0) + 1)
+		suitCounts.set(suits[i], (suitCounts.get(suits[i]) || 0) + 1)
+	}
+
+	if (Math.max(...suitCounts.values()) === 5) {
+		return 'Flush'
+	} else if (Math.max(...rankCounts.values()) === 3) {
+		return 'Three of a Kind'
+	} else if (Math.max(...rankCounts.values()) === 2) {
+		return 'Pair'
+	} else {
+		return 'High Card'
+	}
+}
