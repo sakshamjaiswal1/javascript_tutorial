@@ -44,3 +44,36 @@ const isValidBSTHelper = (node, min, max) => {
 const isValidBST = (root) => {
   return isValidBSTHelper(root, -Infinity, Infinity);
 };
+
+// is symmetric
+
+const isSymmetricR = (root) => {
+  if (root == null) {
+    return true;
+  }
+  return isMirror(root?.left, root?.right);
+  function isMirror(leftNode, rightNode) {
+    if (leftNode == null && rightNode == null) {
+      return true;
+    }
+    if (leftNode == null || rightNode == null) {
+      return false;
+    }
+    return (
+      leftNode?.val === rightNode?.val &&
+      isMirror(leftNode?.left, rightNode?.right) &&
+      isMirror(leftNode?.right, rightNode?.left)
+    );
+  }
+};
+
+// max depth
+
+const maxDepth = (root) => {
+  if (!root) {
+    return 0;
+  }
+  let left = maxDepth(root.left);
+  let right = maxDepth(root.right);
+  return 1 + Math.max(left, right);
+};
