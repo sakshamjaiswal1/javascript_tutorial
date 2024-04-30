@@ -48,3 +48,25 @@ const levelOrder = function (root) {
   }
   return result;
 };
+
+const zigzagLevelOrder = (root) => {
+  if (!root) {
+    return [];
+  }
+  const queue = [{ node: root, depth: 0 }];
+  const result = [];
+  while (queue?.length) {
+    const { node, depth } = queue.shift();
+    if (result?.[depth]) {
+      depth % 2 === 0
+        ? result[depth].push(node.val)
+        : result[depth].unshift(node.val);
+    } else {
+      result[depth] = [node.val];
+    }
+
+    if (node.left) queue.push({ node: node.left, depth: depth + 1 });
+    if (node.right) queue.push({ node: node.right, depth: depth + 1 });
+  }
+  return result;
+};
