@@ -82,8 +82,6 @@ const buildTree = (preorder, inorder) => {
   return root;
 };
 
-
-
 const numTreeMemo = function (n, cache) {
   if (n == 1) {
     return 1;
@@ -105,4 +103,26 @@ const numTreeMemo = function (n, cache) {
 const numTrees = function (n) {
   const cache = [];
   return numTreeMemo(n, cache);
+};
+
+const interleave = function (s1, s2, s3) {
+  if (s1.length + s2.length !== s3.length) return false;
+
+  const dp = Array(s2.length + 1).fill(false);
+
+  for (let i = 0; i <= s1.length; i++) {
+      for (let j = 0; j <= s2.length; j++) {
+          if (i === 0 && j === 0) {
+              dp[j] = true;
+          } else if (i === 0) {
+              dp[j] = dp[j - 1] && s2[j - 1] === s3[i + j - 1];
+          } else if (j === 0) {
+              dp[j] = dp[j] && s1[i - 1] === s3[i + j - 1];
+          } else {
+              dp[j] = (dp[j] && s1[i - 1] === s3[i + j - 1]) || (dp[j - 1] && s2[j - 1] === s3[i + j - 1]);
+          }
+      }
+  }
+
+  return dp[s2.length];
 };
