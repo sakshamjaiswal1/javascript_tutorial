@@ -81,3 +81,28 @@ const buildTree = (preorder, inorder) => {
   root.right = buildTree(preorder?.slice(mid + 1), inorder?.slice(mid + 1));
   return root;
 };
+
+
+
+const numTreeMemo = function (n, cache) {
+  if (n == 1) {
+    return 1;
+  }
+  if (cache[n]) return cache[n];
+  let totalTrees = 0;
+  for (let root = 1; root <= n; root++) {
+    let leftTrees = 1;
+    if (root > 1) {
+      leftTrees = numTreeMemo(root - 1, cache);
+    }
+    let rightTrees = 1;
+    if (root < n) rightTrees = numTreeMemo(n - root, cache);
+    totalTrees += leftTrees * rightTrees;
+  }
+  cache[n] = totalTrees;
+  return totalTrees;
+};
+const numTrees = function (n) {
+  const cache = [];
+  return numTreeMemo(n, cache);
+};
