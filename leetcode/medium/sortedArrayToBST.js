@@ -111,18 +111,44 @@ const interleave = function (s1, s2, s3) {
   const dp = Array(s2.length + 1).fill(false);
 
   for (let i = 0; i <= s1.length; i++) {
-      for (let j = 0; j <= s2.length; j++) {
-          if (i === 0 && j === 0) {
-              dp[j] = true;
-          } else if (i === 0) {
-              dp[j] = dp[j - 1] && s2[j - 1] === s3[i + j - 1];
-          } else if (j === 0) {
-              dp[j] = dp[j] && s1[i - 1] === s3[i + j - 1];
-          } else {
-              dp[j] = (dp[j] && s1[i - 1] === s3[i + j - 1]) || (dp[j - 1] && s2[j - 1] === s3[i + j - 1]);
-          }
+    for (let j = 0; j <= s2.length; j++) {
+      if (i === 0 && j === 0) {
+        dp[j] = true;
+      } else if (i === 0) {
+        dp[j] = dp[j - 1] && s2[j - 1] === s3[i + j - 1];
+      } else if (j === 0) {
+        dp[j] = dp[j] && s1[i - 1] === s3[i + j - 1];
+      } else {
+        dp[j] =
+          (dp[j] && s1[i - 1] === s3[i + j - 1]) ||
+          (dp[j - 1] && s2[j - 1] === s3[i + j - 1]);
       }
+    }
   }
 
   return dp[s2.length];
+};
+
+const recoverTree = function (root) {
+  let first = null;
+  let last = null;
+  let prev = null;
+
+  function dfs(node) {
+    if (!node) return;
+    dfs(node.left);
+    if (prev && node.val < prev.val) {
+      if (first === null) {
+        first = prev;
+      }
+      last = node;
+    }
+    prev = node;
+    dfs(node.right);
+  }
+  dfs(root, null);
+  let temp = first.val;
+  first.val = last.val;
+  last.val = temp;
+  return root;
 };
