@@ -173,7 +173,7 @@ const uniquePathsWithObstacles = (obstacleGrid) => {
   dp[0] = 1;
 
   for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < rows; c++) {
+    for (let c = 0; c < cols; c++) {
       if (obstacleGrid[r][c] === 1) {
         dp[c] = 0;
       } else {
