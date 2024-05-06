@@ -205,27 +205,63 @@ const minPathSum = function (grid) {
   return previousRow[0];
 };
 
-
-const minDistance = function(word1,word2){
+const minDistance = function (word1, word2) {
   let m = word1.length;
   let n = word2.length;
-  let dp = Array(m+1).fill().map(() => Array(n+1).fill(0));
-  for (let i=0; i<=m; i++){
-      for(let j=0; j<=n; j++){
-          if(i==0 & j==0){
-              dp[i][j] = 0;
-          }else if(i==0){
-              dp[i][j] = j;
-          }else if(j == 0){
-              dp[i][j] = i;
-          }else{
-              if(word1[i-1] == word2[j-1]){
-                  dp[i][j] = dp[i-1][j-1];
-              }else{
-                  dp[i][j] = Math.min(Math.min(dp[i-1][j-1]+1, dp[i-1][j]+1), dp[i][j-1]+1);
-              }
-          }
+  let dp = Array(m + 1)
+    .fill()
+    .map(() => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) {
+    for (let j = 0; j <= n; j++) {
+      if ((i == 0) & (j == 0)) {
+        dp[i][j] = 0;
+      } else if (i == 0) {
+        dp[i][j] = j;
+      } else if (j == 0) {
+        dp[i][j] = i;
+      } else {
+        if (word1[i - 1] == word2[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = Math.min(
+            Math.min(dp[i - 1][j - 1] + 1, dp[i - 1][j] + 1),
+            dp[i][j - 1] + 1
+          );
+        }
       }
+    }
   }
   return dp[m][n];
-}
+};
+
+const searchMatrix = function (matrix, target) {
+  let [rows, cols] = [matrix.length, matrix?.[0].length];
+  let [top, bot] = [0, rows - 1];
+  while (top <= bot) {
+    let row = Math.floor((top + bot) / 2);
+    if (target > matrix[row][cols - 1]) {
+      top = row + 1;
+    } else if (target < matrix[row][0]) {
+      bot = row - 1;
+    } else {
+      break;
+    }
+  }
+
+  if (!(top <= bot)) {
+    return false;
+  }
+  let row = Math.floor((top + bot) / 2);
+  let [left, right] = [0, cols - 1];
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (target > matrix[row][mid]) {
+      left = mid + 1;
+    } else if (target < matrix[row][mid]) {
+      right = mid - 1;
+    } else if (target == matrix[row][mid]) {
+      return true;
+    }
+  }
+  return false;
+};
