@@ -265,18 +265,44 @@ const searchMatrix = function (matrix, target) {
   }
   return false;
 };
-const buildTrees = function(inorder, postorder) {    
-    let hash = {};
-    for (let i=0;i<inorder.length;i++) hash[inorder[i]] = i; 
-    
-    let recur = function(start, end) {
-        if (start > end) return null;
-        let val = postorder.pop();
-        let root = new TreeNode(val);
-        root.right = recur(hash[val] + 1, end);
-        root.left = recur(start, hash[val] - 1);
-        return root;
+const buildTrees = function (inorder, postorder) {
+  let hash = {};
+  for (let i = 0; i < inorder.length; i++) hash[inorder[i]] = i;
+
+  let recur = function (start, end) {
+    if (start > end) return null;
+    let val = postorder.pop();
+    let root = new TreeNode(val);
+    root.right = recur(hash[val] + 1, end);
+    root.left = recur(start, hash[val] - 1);
+    return root;
+  };
+
+  return recur(0, inorder.length - 1);
+};
+const sortedListToBST = function (head) {
+  function getarr(head) {
+    if (!head) {
+      return [];
     }
-    
-    return recur(0, inorder.length - 1);  
+    let temp = head;
+    let out = [];
+    while (temp) {
+      out.push(temp.val);
+      temp = temp.mext;
+    }
+    return out;
+  }
+  function tree(nums, start = 0, end = nums?.length - 1) {
+    if (start <= end) {
+      let mid = Math.floor((start + end) / 2);
+      let root = new TreeNode(nums[mid]);
+      root.left = tree(nums, start, mid - 1);
+      root.right = tree(nums, mid + 1, end);
+      return root;
+    }
+    return null;
+  }
+  let arr = getarr(head);
+  return tree(arr);
 };
