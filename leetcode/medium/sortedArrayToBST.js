@@ -281,27 +281,42 @@ const buildTrees = function (inorder, postorder) {
   return recur(0, inorder.length - 1);
 };
 const sortedListToBST = function (head) {
- function getarr(head){
-    if(!head) return [];
+  function getarr(head) {
+    if (!head) return [];
     let temp = head;
-    let out = []
-    while(temp){
-        out.push(temp.val);
-        temp = temp.next;
+    let out = [];
+    while (temp) {
+      out.push(temp.val);
+      temp = temp.next;
     }
     return out;
-}
-function tree(nums, start=0, end = nums.length-1) {
-    if(start<=end){
-        let mid = Math.floor((start+end)/2);
-        // console.log(mid, end)
-        let root = new TreeNode(nums[mid]);
-        root.left = tree(nums, start, mid-1);
-        root.right = tree(nums, mid+1, end);
-        return root;
+  }
+  function tree(nums, start = 0, end = nums.length - 1) {
+    if (start <= end) {
+      let mid = Math.floor((start + end) / 2);
+      // console.log(mid, end)
+      let root = new TreeNode(nums[mid]);
+      root.left = tree(nums, start, mid - 1);
+      root.right = tree(nums, mid + 1, end);
+      return root;
     }
     return null;
-};
+  }
   let arr = getarr(head);
   return tree(arr);
+};
+
+const isBalanced = function (root) {
+  const height = (node) => {
+    if (node === null) {
+      return -1;
+    }
+    return 1 + Math.max(height(node.left), height(node.right));
+  };
+  if (root === null) {
+    return true;
+  } else {
+    let diff = Math.abs(height(root.left) - height(root.right));
+    return diff < 2 && isBalanced(root.left) && isBalanced(root.right);
+  }
 };
