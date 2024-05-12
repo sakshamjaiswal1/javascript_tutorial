@@ -350,3 +350,22 @@ const hasPathSum = function (root, targetSum) {
     hasPathSum(root.right, targetSum - root.val)
   );
 };
+
+const pathSum = function (root, targetSum) {
+  const ans = [];
+  const fun = (node, path, sum) => {
+    if (!node) {
+      return;
+    }
+    if (!node.left && !node.right) {
+      if (sum === node.val) {
+        ans.push([...path, node.val]);
+      }
+      return;
+    }
+    fun(node.left, [...path, node.val], sum - node.val);
+    fun(node.right, [...path, node.val], sum - node.val);
+  };
+  fun(root, [], targetSum);
+  return ans;
+};
