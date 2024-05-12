@@ -369,3 +369,24 @@ const pathSum = function (root, targetSum) {
   fun(root, [], targetSum);
   return ans;
 };
+
+const pathSumSelf = function (root, targetSum) {
+  const paths = [];
+  const calculatePath = (node, path, targetSumInner) => {
+    if (!node) {
+      return;
+    }
+    if (!node.left && !node.right) {
+      if (node.val === targetSumInner) {
+        paths.push([...path, node.val]);
+      }
+      return;
+    }
+
+    calculatePath(node.left, [...path, node.val], targetSumInner - node.val);
+    calculatePath(node.right, [...path, node.val], targetSumInner - node.val);
+  };
+
+  calculatePath(root, [], targetSum);
+  return paths;
+};
