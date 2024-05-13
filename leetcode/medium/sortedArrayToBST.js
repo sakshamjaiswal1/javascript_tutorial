@@ -390,3 +390,17 @@ const pathSumSelf = function (root, targetSum) {
   calculatePath(root, [], targetSum);
   return paths;
 };
+
+const flatten = (root) => {
+  let head = null;
+  const revPreOrder = (node) => {
+    if (node.right) {
+      revPreOrder(node.right);
+    }
+    if (node.left) {
+      revPreOrder(node.left);
+    }
+    (node.left = null), (node.right = head), (head = node);
+  };
+  if (root) revPreOrder(root);
+};
