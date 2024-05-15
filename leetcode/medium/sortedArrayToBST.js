@@ -415,3 +415,33 @@ const connect = function (root) {
   connect(root.right);
   return root;
 };
+
+const levelOrderBottom = function (root) {
+  if (!root) {
+    return [];
+  }
+
+  function findDeepestLevel(root) {
+    if (!root) {
+      return 0;
+    }
+    return (
+      1 + Math.max(findDeepestLevel(root.left), findDeepestLevel(root.right))
+    );
+  }
+  function helper(res, node, level) {
+    if (!node) {
+      return null;
+    }
+    res[level]?.push(node.val);
+    helper(res, node.left, level - 1);
+    helper(res, node.right, level - 1);
+  }
+  const level = findDeepestLevel(root);
+  const res = [];
+  for (let i = 0; i < level; i++) {
+    res.push([]);
+  }
+  helper(res, root, level - 1);
+  return res;
+};
