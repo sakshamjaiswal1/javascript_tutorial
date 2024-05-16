@@ -445,3 +445,31 @@ const levelOrderBottom = function (root) {
   helper(res, root, level - 1);
   return res;
 };
+
+function connect2(root) {
+  if(root===null){
+      return null
+  }
+  const q=[]
+  q.push(root)
+  while(q.length!==0){
+      let size = q.length
+      for(let i=0;i<size;i++){
+          if(q[0].left!==null){
+              q.push(q[0].left);
+          }
+          if(q[0].right!=null){
+              q.push(q[0].right);
+          }
+          if(size-i==1){
+              let deleteNode=q.shift()
+              deleteNode.next=null
+          }
+          else {
+              let deleteNode=q.shift()
+              deleteNode.next=q[0]
+          }
+      }
+  }
+  return root
+};
