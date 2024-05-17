@@ -447,29 +447,37 @@ const levelOrderBottom = function (root) {
 };
 
 function connect2(root) {
-  if(root===null){
-      return null
+  if (root === null) {
+    return null;
   }
-  const q=[]
-  q.push(root)
-  while(q.length!==0){
-      let size = q.length
-      for(let i=0;i<size;i++){
-          if(q[0].left!==null){
-              q.push(q[0].left);
-          }
-          if(q[0].right!=null){
-              q.push(q[0].right);
-          }
-          if(size-i==1){
-              let deleteNode=q.shift()
-              deleteNode.next=null
-          }
-          else {
-              let deleteNode=q.shift()
-              deleteNode.next=q[0]
-          }
+  const q = [];
+  q.push(root);
+  while (q.length !== 0) {
+    let size = q.length;
+    for (let i = 0; i < size; i++) {
+      if (q[0].left !== null) {
+        q.push(q[0].left);
       }
+      if (q[0].right != null) {
+        q.push(q[0].right);
+      }
+      if (size - i == 1) {
+        let deleteNode = q.shift();
+        deleteNode.next = null;
+      } else {
+        let deleteNode = q.shift();
+        deleteNode.next = q[0];
+      }
+    }
   }
-  return root
+  return root;
+}
+
+const minimumTotal = function (triangle) {
+  for (let i = triangle.length - 2; i >= 0; i--) {
+    for (let j = 0; j < triangle[i].length; j++) {
+      triangle[i][j] += Math.min(triangle[i + 1][j], triangle[i + 1][j + 1]);
+    }
+  }
+  return triangle[0][0];
 };
