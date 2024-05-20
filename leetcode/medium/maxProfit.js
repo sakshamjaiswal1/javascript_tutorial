@@ -37,3 +37,21 @@ const largestConsecutive = function (nums) {
   }
   return count;
 };
+
+const sumNumbers = function (root) {
+  let num = 0;
+  let sum = 0;
+  inorder(root, num);
+  function inorder(root, num) {
+    if (root == null) {
+      return;
+    }
+    let temp = num * 10 + root.val;
+    if (root.left == null && root.right == null) {
+      sum += temp;
+    }
+    inorder(root.left, temp);
+    inorder(root.right, temp);
+  }
+  return sum;
+};
