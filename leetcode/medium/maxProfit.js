@@ -107,3 +107,18 @@ const cloneGraph = function (node) {
   }
   return dfs(node);
 };
+
+const canCompleteCircuit = function (gas, cost) {
+  let li = 0;
+  let low = 1e10;
+  let s = 0;
+
+  for (let i = 0; i < gas.length; i++) {
+    s += gas[i] - cost[i];
+    if (s <= low) {
+      low = s;
+      li = i;
+    }
+  }
+  return s >= 0 ? (li + 1) % gas.length : -1;
+};
