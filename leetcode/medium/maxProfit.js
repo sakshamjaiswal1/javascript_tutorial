@@ -122,3 +122,15 @@ const canCompleteCircuit = function (gas, cost) {
   }
   return s >= 0 ? (li + 1) % gas.length : -1;
 };
+
+const singleNumber = function (nums) {
+  const count = {};
+  nums?.forEach((element) => {
+    count[element] = (count[element] || 0) + 1;
+  });
+  for (const key of Object.keys(count)) {
+    if (count[key] === 1) {
+      return key;
+    }
+  }
+};
