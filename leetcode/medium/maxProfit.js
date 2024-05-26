@@ -140,18 +140,34 @@ const copyRandomList = function (head) {
   let cur = head;
 
   while (cur) {
-      hashMap.set(cur, new Node(cur.val));
-      cur = cur.next;
+    hashMap.set(cur, new Node(cur.val));
+    cur = cur.next;
   }
 
   cur = head;
 
   while (cur) {
-      const copy = hashMap.get(cur);
-      copy.next = hashMap.get(cur.next) || null;
-      copy.random = hashMap.get(cur.random) || null;
-      cur = cur.next;
+    const copy = hashMap.get(cur);
+    copy.next = hashMap.get(cur.next) || null;
+    copy.random = hashMap.get(cur.random) || null;
+    cur = cur.next;
   }
 
-  return hashMap.get(head)
+  return hashMap.get(head);
+};
+const wordBreak = function (s, wordDict) {
+  const n = s.length;
+  const wordSet = new Set(wordDict);
+ const dp = new Array(n + 1).fill(false);
+  dp[0] = true;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      if (dp[j] && wordSet.has(s.substring(j, i))) {
+        dp[i] = true;
+
+        break;
+      }
+    }
+  }
+  return dp[n];
 };
