@@ -158,7 +158,7 @@ const copyRandomList = function (head) {
 const wordBreak = function (s, wordDict) {
   const n = s.length;
   const wordSet = new Set(wordDict);
- const dp = new Array(n + 1).fill(false);
+  const dp = new Array(n + 1).fill(false);
   dp[0] = true;
   for (let i = 1; i <= n; i++) {
     for (let j = 0; j < i; j++) {
@@ -170,4 +170,29 @@ const wordBreak = function (s, wordDict) {
     }
   }
   return dp[n];
+};
+
+var reorderList = function (head) {
+  if (!head || !head.next || !head.next.next) return;
+  const list = [];
+  let curr = head;
+  while (curr !== null) {
+    list.push(curr.val);
+    curr = curr.next;
+  }
+
+  curr = head;
+
+  for (let i = 0, j = list.length - 1; i < list.length && j >= 0; i++, j--) {
+    if (i <= j) {
+      curr.val = list[i];
+      curr = curr.next;
+    }
+    if (curr === null) {
+      return;
+    } else if (i !== j) {
+      curr.val = list[j];
+      curr = curr.next;
+    }
+  }
 };
