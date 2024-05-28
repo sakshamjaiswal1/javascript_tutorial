@@ -196,3 +196,18 @@ var reorderList = function (head) {
     }
   }
 };
+
+const preorderTraversal = function (root) {
+  const result = [];
+
+  const getPreorder = (node) => {
+    if (node === null) {
+      return;
+    }
+    result.push(node.val);
+    getPreorder(node.left);
+    getPreorder(node.right);
+  };
+  getPreorder(root);
+  return result;
+};
