@@ -211,3 +211,15 @@ const preorderTraversal = function (root) {
   getPreorder(root);
   return result;
 };
+var postorderTraversal = function(root) {
+  const result = [];
+  const postorderTraversalHelper = (root, result) => {
+    if(!root) return;
+    postorderTraversalHelper(root.left, result)
+    postorderTraversalHelper(root.right, result)
+    result.push(root.val)
+}
+  postorderTraversalHelper(root, result)
+  return result;
+ 
+};
