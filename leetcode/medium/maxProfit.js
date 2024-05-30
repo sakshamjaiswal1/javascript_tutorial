@@ -211,15 +211,30 @@ const preorderTraversal = function (root) {
   getPreorder(root);
   return result;
 };
-var postorderTraversal = function(root) {
+var postorderTraversal = function (root) {
   const result = [];
   const postorderTraversalHelper = (root, result) => {
-    if(!root) return;
-    postorderTraversalHelper(root.left, result)
-    postorderTraversalHelper(root.right, result)
-    result.push(root.val)
-}
-  postorderTraversalHelper(root, result)
+    if (!root) return;
+    postorderTraversalHelper(root.left, result);
+    postorderTraversalHelper(root.right, result);
+    result.push(root.val);
+  };
+  postorderTraversalHelper(root, result);
   return result;
- 
+};
+
+const insertionSortList = function (head) {
+  let arr = [];
+  while (head) {
+    arr.push(head.val);
+    head = head.next;
+  }
+  arr.sort((a, b) => a - b);
+let res = new ListNode(arr[0]);
+  let result = res;
+  for (let i = 1; i < arr.length; i++) {
+    result.next = new ListNode(arr[i]);
+    result = result.next;
+  }
+  return res;
 };
