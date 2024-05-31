@@ -230,11 +230,27 @@ const insertionSortList = function (head) {
     head = head.next;
   }
   arr.sort((a, b) => a - b);
-let res = new ListNode(arr[0]);
+  let res = new ListNode(arr[0]);
   let result = res;
   for (let i = 1; i < arr.length; i++) {
     result.next = new ListNode(arr[i]);
     result = result.next;
   }
   return res;
+};
+
+const sortList = function (head) {
+  const arr = [];
+  let node = head;
+  while (head) {
+    arr.push(head.val);
+    head = head.next;
+  }
+  arr.sort((a, b) => a - b);
+  head = node;
+  for (const n of arr) {
+    node.val = n;
+    node = node.next;
+  }
+  return head;
 };
