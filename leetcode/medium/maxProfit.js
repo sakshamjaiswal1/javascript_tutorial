@@ -344,3 +344,25 @@ const mergeKLists3 = function(lists) {
 
   return dummyNode.next
 }
+
+const mergeKLists4 = function(lists) {
+  var heap = new MinPriorityQueue({compare: (a, b) => a.val - b.val})
+
+  for (var i = 0; i < lists.length; i++) {
+      if (lists[i]) {
+          heap.enqueue(lists[i])
+      }
+  }
+
+  var dummyNode = new ListNode()
+  var tail = dummyNode
+  while(!heap.isEmpty()) {
+      tail.next = heap.dequeue()
+      tail = tail.next
+      if (tail.next) {
+          heap.enqueue(tail.next)
+      }
+  }
+
+  return dummyNode.next
+}
