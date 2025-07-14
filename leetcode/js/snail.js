@@ -3,7 +3,9 @@ Array.prototype.snail = function (rowsCount, colsCount) {
   if (rowsCount * colsCount !== this.length) return [];
 
   // Step 1: Create the empty result matrix
-  const result = Array(rowsCount).fill().map(() => []);
+  const result = Array(rowsCount)
+    .fill()
+    .map(() => []);
 
   // Step 2: Fill values in zig-zag (snail) column-wise pattern
   for (let colIndex = 0; colIndex < colsCount; colIndex++) {
@@ -28,4 +30,21 @@ Array.prototype.snail = function (rowsCount, colsCount) {
   }
 
   return result;
+};
+
+
+// recursive 
+const flat = function (arr, n) {
+  if (n <= 0 || arr.every((item) => typeof item === "number")) {
+    return arr;
+  }
+  const newArr = [];
+  for (let x of arr) {
+    if (typeof x === "number") {
+      newArr.push(x);
+    } else {
+      newArr.push(...x);
+    }
+  }
+  return flat(newArr, n - 1);
 };
