@@ -32,8 +32,7 @@ Array.prototype.snail = function (rowsCount, colsCount) {
   return result;
 };
 
-
-// recursive 
+// recursive
 const flat = function (arr, n) {
   if (n <= 0 || arr.every((item) => typeof item === "number")) {
     return arr;
@@ -47,4 +46,13 @@ const flat = function (arr, n) {
     }
   }
   return flat(newArr, n - 1);
+};
+
+const reduce = function (nums, fn, init) {
+  let value = init;
+
+  nums.forEach((element) => {
+    value = fn(value, element);
+  });
+  return value;
 };
