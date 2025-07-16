@@ -56,3 +56,11 @@ const reduce = function (nums, fn, init) {
   });
   return value;
 };
+
+const debounce = function (fn, t) {
+  let timer;
+  return function (...args) {
+    clearInterval(timer);
+    timer = setTimeout(() => fn(...args), t);
+  };
+};
