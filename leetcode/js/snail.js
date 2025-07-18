@@ -64,3 +64,22 @@ const debounce = function (fn, t) {
     timer = setTimeout(() => fn(...args), t);
   };
 };
+
+const throttle = function (fn, t) {
+  let timer = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - timer >= t) {
+      timer = now;
+      fn.apply(this, args);
+    }
+  };
+};
+
+function incrementClosure() {
+  let count = 0;
+
+  return () => {
+    return count++;
+  };
+}
