@@ -83,3 +83,13 @@ function incrementClosure() {
     return count++;
   };
 }
+
+function deepClone(obj) {
+  if (obj === null || typeof obj !== "object") {
+    return obj;
+  }
+  const cloneObj = {};
+  for (let key in obj) {
+    cloneObj[key] = deepClone(obj[key]);
+  }
+}
