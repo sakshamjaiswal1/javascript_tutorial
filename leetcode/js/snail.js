@@ -84,6 +84,7 @@ function incrementClosure() {
   };
 }
 
+// Deepclone
 function deepClone(obj) {
   if (obj === null || typeof obj !== "object") {
     return obj;
@@ -93,6 +94,7 @@ function deepClone(obj) {
     cloneObj[key] = deepClone(obj[key]);
   }
 }
+// Deep Equal
 
 function deepEqual(obj1, obj2) {
   if (obj1 === obj2) {
@@ -122,4 +124,19 @@ function deepEqual(obj1, obj2) {
     }
   }
   return true;
+}
+
+// Remove duplicates from the string
+function removeDuplicates(str) {
+  let seen = {};
+  let result = "";
+
+  for (let i = 0; i < str?.length; i++) {
+    const elem = str[i];
+    if (!seen[elem]) {
+      seen[elem] = true;
+      result += elem;
+    }
+  }
+  return result;
 }
