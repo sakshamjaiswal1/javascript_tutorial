@@ -140,3 +140,44 @@ function removeDuplicates(str) {
   }
   return result;
 }
+
+// First non-repeating character — who stands alone?
+
+function firstNonRepeatingElement(str) {
+  const count = {};
+  for (let i = 0; i < str?.length; i++) {
+    const currElem = str[i];
+    count[currElem] = (count[currElem] || 0) + 1;
+  }
+  for (let i = 0; i < str?.length; i++) {
+    if (count[str[i]] === 1) {
+      return str[i];
+    }
+  }
+  return null;
+}
+
+// Flip the words in a sentence, not the letters.
+
+function reverseWords(sentence) {
+  let words = [];
+  let word = "";
+  for (let i = 0; i < sentence.length; i++) {
+    const char = sentence[i];
+
+    if (char === " ") {
+      if (word.length > 0) {
+        words.push(word);
+        word = "";
+      }
+    } else {
+      word += char;
+    }
+  }
+  if (word?.length > 0) {
+    words.push(word);
+  }
+
+  return words.reverse().join(" ");
+}
+console.log(reverseWords("I am learning JavaScript"));
