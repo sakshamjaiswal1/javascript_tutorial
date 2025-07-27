@@ -180,4 +180,27 @@ function reverseWords(sentence) {
 
   return words.reverse().join(" ");
 }
-console.log(reverseWords("I am learning JavaScript"));
+
+// 7. Are two strings anagrams? Prove it.
+
+function isAnagram(str1, str2) {
+  return str1.split("").sort().join("") === str2.split("").sort().join();
+}
+
+// 8. Longest substring without repeats — sliding window style.
+function lengthOfLongestSubstring(s) {
+  let start = 0;
+  let maxLen = 0;
+  const seen = new Map();
+
+  for (let end = 0; end < s.length; end++) {
+    const char = s[end];
+
+    if (seen.has(char) && seen.get(char) >= start) {
+      start = seen.get(char) + 1;
+    }
+    seen.set(char, end);
+    maxLen = Math.max(maxLen, end - start + 1);
+  }
+  return maxLen;
+}
