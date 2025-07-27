@@ -204,3 +204,61 @@ function lengthOfLongestSubstring(s) {
   }
   return maxLen;
 }
+
+// 9. Build your own atoi — string to integer.
+
+function myAtoi(s) {
+  let i = 0;
+  const n = s.length;
+  const INT_MAX = 2 ** 31 - 1;
+  const INT_MIN = -(2 ** 31);
+
+  // 1. Skip leading whitespaces
+  while (i < n && s[i] === " ") {
+    i++;
+  }
+
+  // 2. Check for sign
+  let sign = 1;
+  if (i < n && (s[i] === "+" || s[i] === "-")) {
+    if (s[i] === "-") sign = -1;
+    i++;
+  }
+
+  // 3. Parse digits
+  let result = 0;
+  while (i < n && s[i] >= "0" && s[i] <= "9") {
+    const digit = s.charCodeAt(i) - "0".charCodeAt(0);
+
+    // 4. Handle overflow
+    if (
+      result > Math.floor(INT_MAX / 10) ||
+      (result === Math.floor(INT_MAX / 10) && digit > 7)
+    ) {
+      return sign === 1 ? INT_MAX : INT_MIN;
+    }
+
+    result = result * 10 + digit;
+    i++;
+  }
+
+  return result * sign;
+}
+
+// 10. Compress strings with run-length encoding.
+function runLengthEncode(s) {
+  if (!s || s.length === 0) return "";
+  let count = 1;
+  let result = "";
+
+  for (let i = 1; i <= s.length; i++) {
+    if (s[i] === s[i - 1]) {
+      count++;
+    } else {
+      result = result + s[i - 1] + count;
+      count = 1;
+    }
+  }
+  return result;
+}
+
